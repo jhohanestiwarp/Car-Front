@@ -1,0 +1,31 @@
+services:
+  #new app (angular_app)
+#  angular_app:
+#    container_name: angular_app
+#    image: pee-angular_app:1.0.0
+#    build: ./angular/my-front-app/
+#    ports:
+#      - 4200:4200
+#    depends_on:
+#      - carvajal_api
+  carvajal_api:
+    container_name: carvajal_api
+    image: carvajal_api:1.0.0
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_URL=r2dbc:postgresql://carvajal_db:5432/carvajal
+      - DATABASE_USERNAME=c9ba0d41b19f917f6f853f5adaf185d0
+      - DATABASE_PASSWORD=8165c6fcfc2d73314e9e3713500856d6
+    depends_on:
+      - carvajal_db
+  carvajal_db:
+    container_name: carvajal_db
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: c9ba0d41b19f917f6f853f5adaf185d0
+      POSTGRES_PASSWORD: 8165c6fcfc2d73314e9e3713500856d6
+      POSTGRES_DB: carvajal

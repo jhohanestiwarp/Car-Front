@@ -1,0 +1,11 @@
+rootProject.name = 'catalogue'
+
+include 'domain:model'
+findProject(':domain:model')?.name = 'model'
+include 'aplication:use-case'
+findProject(':aplication:use-case')?.name = 'use-case'
+include 'infrastructure:driver-adapters:jpa-repository'
+findProject(':infrastructure:driver-adapters:jpa-repository')?.name = 'jpa-repository'
+include 'infrastructure:entry-points:reactive-web'
+findProject(':infrastructure:entry-points:reactive-web')?.name = 'reactive-web'
+

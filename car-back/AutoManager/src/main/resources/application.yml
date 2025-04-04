@@ -1,0 +1,18 @@
+server:
+  port: 8000
+
+spring:
+  r2dbc:
+    url: r2dbc:sqlserver://localhost/AutoManager
+    username: sa
+    password: 12345678
+    pool:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  jwt:
+    secret: "MUVFQTJCQkFCMzI0MzkyM0E5QjlGNTU2REMyNDlEQTdEMjUyMUNBODFDQkE4"
+
+  api_url_v: /api/v1

@@ -1,0 +1,3 @@
+spring:
+  jwt:
+    secret: "MUVFQTJCQkFCMzI0MzkyM0E5QjlGNTU2REMyNDlEQTdEMjUyMUNBODFDQkE4"

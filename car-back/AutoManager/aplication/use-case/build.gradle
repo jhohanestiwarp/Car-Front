@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.1'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.carvajal'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.1.1'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+    implementation project(":domain:model")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootJar {
+    mainClass = 'com.carvajal.catalogue.CatalogueApplication'
+}
